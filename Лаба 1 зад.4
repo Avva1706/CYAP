@@ -1,0 +1,11 @@
+input_string = 'I love Python'
+letter_counts = {}
+for letter in input_string:
+    if letter.isalpha():
+        letter = letter.lower()
+        if letter in letter_counts:
+            letter_counts[letter] += 1
+        else:
+            letter_counts[letter] = 1
+print("Словарь с количеством вхождений букв:")
+print(letter_counts)
