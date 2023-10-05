@@ -1,0 +1,63 @@
+jewelry_store = {
+    'Кольцо': ['Золото', 500, 10],
+    'Браслет': ['Серебро', 250, 15],
+    'Ожерелье': ['Золото', 700, 5],
+    'Серьги': ['Золото', 350, 8],
+    'Цепь': ['Серебро', 150, 12]
+}
+while True:
+    print("\nМеню:")
+    print("1. Просмотр описания")
+    print("2. Просмотр цены")
+    print("3. Просмотр количества")
+    print("4. Вся информация")
+    print("5. Покупка")
+    print("6. До свидания")
+    choice = input("Выберите пункт меню (1/2/3/4/5/6): ")
+    if choice == '1':
+        item = input("Введите название изделия: ")
+        if item in jewelry_store:
+            description = jewelry_store[item][0]
+            print(f"Описание {item}: {description}")
+        else:
+            print("Такого изделия нет в магазине.")
+
+    elif choice == '2':
+        item = input("Введите название изделия: ")
+        if item in jewelry_store:
+            price = jewelry_store[item][1]
+            print(f"Цена {item}: {price} рублей")
+        else:
+            print("Такого изделия нет в магазине.")
+    elif choice == '3':
+        item = input("Введите название изделия: ")
+        if item in jewelry_store:
+            quantity = jewelry_store[item][2]
+            print(f"Количество {item} в наличии: {quantity} штук")
+        else:
+            print("Такого изделия нет в магазине.")
+    elif choice == '4':
+        print("Вся информация о ювелирных изделиях:")
+        for item, details in jewelry_store.items():
+            description, price, quantity = details
+            print(f"{item}: Описание - {description}, Цена - {price} рублей, Количество - {quantity} штук")
+    elif choice == '5':
+        item = input("Введите название изделия для покупки (или 'n' для выхода): ")
+        if item == 'n':
+            break
+        if item in jewelry_store:
+            quantity = int(input(f"Введите количество {item} для покупки: "))
+            if quantity <= jewelry_store[item][2]:
+                total_price = quantity * jewelry_store[item][1]
+                jewelry_store[item][2] -= quantity
+                print(f"Покупка успешно совершена. Сумма к оплате: {total_price} рублей")
+            else:
+                print(f"Извините, недостаточно {item} в наличии.")
+        else:
+            print("Такого изделия нет в магазине.")
+
+    elif choice == '6':
+        print("До свидания!")
+        break
+    else:
+        print("Некорректный выбор. Пожалуйста, выберите пункт меню от 1 до 6.")
