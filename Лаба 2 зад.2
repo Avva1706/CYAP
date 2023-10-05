@@ -1,0 +1,34 @@
+def process_argument(arg):
+    if isinstance(arg, set):
+        if len(arg) >= 3:
+            largest_values = sorted(arg, reverse=True)[:3]
+            print("Первые три наибольших значения:", largest_values)
+        else:
+            print("Множество содержит менее трех элементов.")
+
+    elif isinstance(arg, int):
+        if arg < 2:
+            print("Число не является простым.")
+        else:
+            is_prime = True
+            for i in range(2, int(arg ** 0.5) + 1):
+                if arg % i == 0:
+                    is_prime = False
+                    break
+            if is_prime:
+                print("Число является простым.")
+            else:
+                print("Число не является простым.")
+
+    elif isinstance(arg, str):
+        vowels = "AEIOUaeiou"
+        arg_without_punctuation = arg.translate(str.maketrans('', '', string.punctuation))
+        vowel_count = sum(1 for char in arg_without_punctuation if char in vowels)
+        print("Количество гласных в строке:", vowel_count)
+        print("Строка без знаков препинания:", arg_without_punctuation)
+
+    else:
+        print("Неизвестный тип аргумента.")
+process_argument({4, 7, 2, 9, 5, 8})
+process_argument(17)
+process_argument("Hello, World! How are you?")
