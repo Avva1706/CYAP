@@ -1,0 +1,16 @@
+while True:
+    try:
+        num_elements = int(input("Введите количество элементов в списке: "))
+        break
+    except ValueError:
+        print("Ошибка! Введите целое число.")
+my_list = []
+for i in range(num_elements):
+    while True:
+        try:
+            element = int(input(f"Введите элемент {i + 1}: "))
+            my_list.append(element)
+            break
+        except ValueError:
+            print("Ошибка! Введите целое число.")
+print("Заполненный список:", my_list)
