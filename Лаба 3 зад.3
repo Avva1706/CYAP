@@ -1,0 +1,28 @@
+def create_chessboard(n, m):
+    chessboard = []
+
+    for i in range(n):
+        row = []
+        for j in range(m):
+            if (i + j) % 2 == 0:
+                row.append(".")
+            else:
+                row.append("*")
+        chessboard.append(row)
+
+    return chessboard
+while True:
+    try:
+        n = int(input("Введите размерность n: "))
+        break
+    except ValueError:
+        print("Ошибка! Введите целое число.")
+while True:
+    try:
+        m = int(input("Введите размерность m: "))
+        break
+    except ValueError:
+        print("Ошибка! Введите целое число.")
+chessboard = create_chessboard(n, m)
+for row in chessboard:
+    print(" ".join(row))
