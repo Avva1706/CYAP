@@ -1,0 +1,32 @@
+while True:
+    try:
+        num_elements = int(input("Введите количество элементов в списке: "))
+        break
+    except ValueError:
+        print("Ошибка! Введите целое число.")
+my_list = []
+for i in range(num_elements):
+    while True:
+        try:
+            element = int(input(f"Введите элемент {i + 1} : "))
+            my_list.append(element)
+            break
+        except ValueError:
+            print("Ошибка! Введите целое число.")
+print("Заполненный список:", my_list)
+while True:
+    try:
+        c = int(input("Введите целое число: "))
+        break
+    except ValueError:
+        print("Ошибка! Введите целое число.")
+count_greater_than_C = sum(1 for x in my_list if x > c)
+print("Количество элементов больше с:", count_greater_than_C)
+max_abs_value = max(my_list)
+max_abs_index = my_list.index(max_abs_value)
+product_after_max_abs = 1
+for x in my_list[max_abs_index + 1:]:
+    product_after_max_abs *= x
+print("Произведение элементов после максимального по модулю элемента:", product_after_max_abs)
+my_list = [x for x in my_list if x <= 0]
+print("Список после удаления положительных элементов:", my_list)
