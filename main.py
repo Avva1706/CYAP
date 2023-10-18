@@ -7,7 +7,6 @@ def sum_even_digits(n):
         n //= 10
     return even_sum
 input_num = 0
-print("Like")
 while True:
     try:
         input_num = int(input("Введите натуральное число: "))
