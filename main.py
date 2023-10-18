@@ -65,3 +65,4 @@ def process_argument(arg):
         print("Неизвестный тип аргумента.")
 process_argument({4, 7, 2, 9, 5, 8})
 process_argument(8)
+
