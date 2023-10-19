@@ -110,7 +110,14 @@ while True:
         if item == 'n':
             break
         if item in jewelry_store:
-            quantity = int(input(f"Введите количество {item} для покупки: "))
+            while True:
+                try:
+                    quantity = int(input(f"Введите количество {item} для покупки: "))
+                    break
+                except ValueError:
+                    print("Ошибка! Введите целое число.")
+            if quantity < 0:
+                quantity = quantity*-1
             if quantity <= jewelry_store[item][2]:
                 total_price = quantity * jewelry_store[item][1]
                 jewelry_store[item][2] -= quantity
@@ -135,4 +142,3 @@ if result:
         print(element)
 else:
     print("Все элементы первого множества присутствуют во втором множестве.")
-    print("Gitik")
