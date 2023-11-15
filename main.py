@@ -15,7 +15,7 @@ with open('Fzad11.txt', 'rb') as file:
     bytees2 = len(file.read())
 print(bytees1, "байт")
 print(bytees2, "байт")
-with open('Fzad2.txt', 'w') as file:
+with open('Fzad2.txt', 'r') as file:
     cena = 0
     for linia in file:
         magazin = linia.split()
