@@ -26,3 +26,16 @@ with open('Fzad2.txt', 'r') as file:
         cena += allcena
         print(f"{nazvanie}:{colich} шт по {cennik} руб за шт = {allcena} руб")
         print(f"\nОбщаяя стоимость: {cena} руб")
+predmets = {}
+with open('Fzad3.txt', 'r') as file:
+    for linia in file:
+        predmet = linia.split(':')
+        if len(predmet) == 2:
+            predmetnazv = predmet[0].strip()
+            paras = predmet[1].split()
+            sum_para = 0
+            for para in paras:
+                if '(' in para and ')' in para:
+                    sum_para += int(para.split('(')[0])
+            predmets[predmetnazv] = sum_para
+print(f"Словарь: {predmets}")
