@@ -15,3 +15,14 @@ with open('Fzad11.txt', 'rb') as file:
     bytees2 = len(file.read())
 print(bytees1, "байт")
 print(bytees2, "байт")
+with open('Fzad2.txt', 'w') as file:
+    cena = 0
+    for linia in file:
+        magazin = linia.split()
+        nazvanie, colich, cennik = magazin
+        colich = int(colich)
+        cennik = float(cennik)
+        allcena = colich * cennik
+        cena += allcena
+        print(f"{nazvanie}:{colich} шт по {cennik} руб за шт = {allcena} руб")
+        print(f"\nОбщаяя стоимость: {cena} руб")
