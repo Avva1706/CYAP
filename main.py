@@ -7,9 +7,11 @@ with open('Fzad11.txt', 'w') as file:
         file.write(line+'\n')
 with open('Fzad11.txt', 'r') as write_file, open('Fzad12.txt', 'w') as copy_file:
     linia = write_file.readlines()
-    second_linia = [linia for index, linia in enumerate(linia, start=1) if index % 2 == 0]
-    copy_file.write(second_linia)
+    second_linia = [line for index, line in enumerate(linia, start=1) if index % 2 == 0]
+    copy_file.writelines(second_linia)
 with open('Fzad11.txt', 'rb') as file:
     bytees1 = len(file.read())
 with open('Fzad11.txt', 'rb') as file:
     bytees2 = len(file.read())
+print(bytees1, "байт")
+print(bytees2, "байт")
