@@ -51,6 +51,22 @@ class Pencil(Stationery):
 class Handle(Stationery):
     def draw(self):
         print(f"Отрисовка маркером {self.nazv}")
+class Car:
+    all_cars = 0
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        Car.all_cars = Car.all_cars + 1
+    def infa(self):
+        print(f"{ self.brand} { self.model} {self.year}")
+    @staticmethod
+    def all_carses():
+        return Car.all_cars
+    @classmethod
+    def create(cls, car_str):
+        brand, model, year = car_str.split()
+        return cls(brand, model, int(year))
 try:
     rad = float(input("Введите радиус круга: "))
     cir = Circle(rad)
@@ -76,3 +92,11 @@ handle_drawing = Handle("Sharp")
 pen_drawing.draw()
 pencil_drawing.draw()
 handle_drawing.draw()
+car1 = Car("BMV", "XZ", 2020)
+car2 = Car("Merc", "XZ2", 2018)
+car1.infa()
+car2.infa()
+all_cars = Car.all_carses()
+car_string = "Ford Mustang 2019"
+new_car = Car.create(car_string)
+new_car.infa()
