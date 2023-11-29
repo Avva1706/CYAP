@@ -35,8 +35,22 @@ class Rabot:
         print("Отработанные часы: ", self.hours)
         print("Оклад: ", self.oklad)
         print("Премия: ", self.bonus)
-        print("Заработанная плата: ", self.zarplata)
-        print("Итого: ", self.calc_bonus)
+        print("Заработанная плата: ", self.zarplata())
+        print("Итого: ", self.calc_bonus())
+class Stationery:
+    def __init__(self, nazv):
+        self.nazv = nazv
+    def draw(self):
+        print("Запуск отрисовки")
+class Pen(Stationery):
+    def draw(self):
+        print(f"Отрисовка ручкой {self.nazv}")
+class Pencil(Stationery):
+    def draw(self):
+        print(f"Отрисовка карандашём {self.nazv}")
+class Handle(Stationery):
+    def draw(self):
+        print(f"Отрисовка маркером {self.nazv}")
 try:
     rad = float(input("Введите радиус круга: "))
     cir = Circle(rad)
@@ -56,3 +70,9 @@ for i in range(1):
     rabotnik.append(Rabot(name, staz, stavka, hours, oklad, bonus))
     for Rabot in rabotnik:
         Rabot.infa()
+pen_drawing = Pen("Parker")
+pencil_drawing = Pencil("Faber")
+handle_drawing = Handle("Sharp")
+pen_drawing.draw()
+pencil_drawing.draw()
+handle_drawing.draw()
